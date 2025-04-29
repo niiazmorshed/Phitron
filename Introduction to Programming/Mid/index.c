@@ -1,24 +1,31 @@
 #include <stdio.h>
-#include <string.h>
-char s[10000001];
 int main()
 {
-    scanf("%s", s);
-    int fra[27] = {0};
-    int len = strlen(s);
-    char fre[27] = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0; i < len; i++)
+    int n;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++)
     {
-        fra[s[i] - 97]++;
-    }
-    for (int i = 0; i < 26; i++)
-    {
-        if (fra[i] > 0)
+        for (int j = 1; j <= i; j++)
         {
-            // printf("%c : %d\n", 'a'+ i, fra[i]);
-            printf("%c : %d\n", fre[i], fra[i]);
-
+            printf("%d", j);
         }
+        printf("\n");
     }
+    for (int i = 1; i < n; i++)
+    {
+        int j = 1;
+        for (int l = 1; l <= i; l++)
+        {
+            printf(" ");
+        }
+        for (j; j <= n - i; j++)
+        {
+
+            printf("%d", j);
+        }
+        j = 1;
+        printf("\n");
+    }
+
     return 0;
 }

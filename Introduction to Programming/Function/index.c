@@ -18,7 +18,6 @@ int main()
             fra[fraindex] = s[i];
             fraindex++;
         }
-        
     }
     fra[fraindex] = '\0';
     int primelen = strlen(fra);
@@ -26,26 +25,25 @@ int main()
     {
         if (fra[i] >= 'A' && fra[i] <= 'Z')
         {
-            fra[i] = s[i] + 32;
+            fra[i] = fra[i] + 32;
         }
     }
-    printf("%s", fra);
-
-    int j = len - 2;
-    // for (int i = 0; i < primelen / 2; i++, j--)
-    // {
-    //     if (fra[i] != fra[j])
-    //     {
-    //         flag = false;
-    //     }
-    // }
-    // if (flag == true)
-    // {
-    //     printf("Yes");
-    // }
-    // else
-    // {
-    //     printf("No");
-    // }
+    int j = primelen - 1;
+    for (int i = 0; i < primelen / 2; i++, j--)
+    {
+        if (fra[i] != fra[j])
+        {
+            flag = false;
+            break;
+        }
+    }
+    if (flag == true)
+    {
+        printf("Yes");
+    }
+    else
+    {
+        printf("No");
+    }
     return 0;
 }

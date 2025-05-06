@@ -2,7 +2,7 @@
 
 char capital_to_small(char c)
 {
-    char val = c+32;
+    char val = c-32;
     return val ;
 }
 int main()

@@ -1,51 +1,28 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
+
+int count_before_one(int a[], int n)
+{
+
+    int i = 0;
+    int count = 0;
+    while (a[i] != 1)
+    {
+        count++;
+        i++;
+    }
+    return count;
+}
+
 int main()
 {
-    char s[100001];
-    bool flag = true;
-    fgets(s, 100001, stdin);
-    int len = strlen(s);
-
-    char fra[100001];
-    int fraindex = 0;
-    for (int i = 0; i < len; i++)
+    int n;
+    scanf("%d", &n);
+    int a[n];
+    for (int i = 0; i < n; i++)
     {
-        if (s[i] >= 97 && s[i] <= 122 || s[i] >= 65 && s[i] <= 90)
-        {
-            int val = s[i];
-            fra[fraindex] = s[i];
-            fraindex++;
-        }
-        
+        scanf("%d", &a[i]);
     }
-    fra[fraindex] = '\0';
-    int primelen = strlen(fra);
-    for (int i = 0; i < primelen; i++)
-    {
-        if (fra[i] >= 'A' && fra[i] <= 'Z')
-        {
-            fra[i] = s[i] + 32;
-        }
-    }
-    printf("%s", fra);
-
-    int j = len - 2;
-    // for (int i = 0; i < primelen / 2; i++, j--)
-    // {
-    //     if (fra[i] != fra[j])
-    //     {
-    //         flag = false;
-    //     }
-    // }
-    // if (flag == true)
-    // {
-    //     printf("Yes");
-    // }
-    // else
-    // {
-    //     printf("No");
-    // }
+    int val = count_before_one(a, n);
+    printf("%d", val);
     return 0;
 }

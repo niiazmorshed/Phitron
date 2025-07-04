@@ -1,30 +1,23 @@
 #include <stdio.h>
+#include <string.h>
 int main()
 {
     int n;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    char s[1000001];
+    scanf("%s", s);
+    int sum = 0;
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= i; j++)
-        {
-            printf("%d", j);
-        }
-        printf("\n");
+        sum += s[i] - '0';
     }
-    for (int i = 1; i < n; i++)
+    if (sum % 3 == 0)
     {
-        int j = 1;
-        for (int l = 1; l <= i; l++)
-        {
-            printf(" ");
-        }
-        for (j; j <= n - i; j++)
-        {
-
-            printf("%d", j);
-        }
-        j = 1;
-        printf("\n");
+        printf("YES");
+    }
+    else
+    {
+        printf("NO");
     }
 
     return 0;

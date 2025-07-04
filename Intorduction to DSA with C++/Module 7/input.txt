@@ -1,0 +1,7 @@
+6
+Eren 3 9
+Mikasa 1 19
+Armin 2 7
+Floch 4 12
+Hanze 5 22
+Rainer 7 22

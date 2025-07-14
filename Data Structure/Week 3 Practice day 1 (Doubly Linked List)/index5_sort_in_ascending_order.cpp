@@ -14,13 +14,49 @@ public:
         this->next = NULL;
     }
 };
+
+void insert_at_tail(Node *&head, Node *&tail, int val)
+{
+    Node *newNode = new Node(val);
+    if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    tail->next = newNode;
+    newNode->prev = tail;
+    tail = newNode;
+}
+
+void sort_ascending(Node *&head)
+{
+    for (Node *i = head; i->next!= NULL; i = i->next)
+    {
+        for (Node *j = i->next; j!= NULL; j = j->next)
+        {
+            if (i->val > j->val)
+            {
+                swap(i->val, j->val);
+            }
+        }
+    }
+}
+void print_forward(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
 int main()
 {
-
     Node *head = NULL;
     Node *tail = NULL;
     int val;
-    list<int> l;
     while (true)
     {
         cin >> val;
@@ -28,13 +64,9 @@ int main()
         {
             break;
         }
-
-        l.push_back(val);
+        insert_at_tail(head, tail, val);
     }
-    l.sort();
-    for (int i : l)
-    {
-        cout << i << " ";
-    }
+    sort_ascending(head);
+    print_forward(head);
     return 0;
 }

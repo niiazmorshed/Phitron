@@ -6,6 +6,7 @@ class Stack
 public:
     list<int> l;
     void push(int lal)
+    
     {
         l.push_back(lal);
     }

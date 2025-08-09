@@ -13,7 +13,7 @@ int main()
         q.push(val);
     }
     stack<int> st;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) 
     {
         st.push(q.front());
         q.pop();

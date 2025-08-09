@@ -1,1 +1,11 @@
-https://www.hackerrank.com/contests/assignment-01-a-basic-data-structure-a-batch-07/challenges
+ int index = s.find(' ');
+            string val = s.substr(index + 1);
+            auto it = find(l.begin(), l.end(), val);
+            if (it == l.end())
+            {
+                cout << "Not Available" << endl;
+            }
+            else
+            {
+                cout << *it << endl;
+            }

@@ -1,36 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     int n;
     cin >> n;
-    while (n--)
-    {
+    cin.ignore();
+    while (n--) {
         string s;
-        cin.ignore();
         getline(cin, s);
         stringstream ss(s);
         string word;
+
         map<string, int> mp;
-        while (ss >> word)
-        {
-            mp[word]++;
-        }
+        string maxWord;
         int mx = 0;
-        map<string, int> maxmp;
-        for (auto it = mp.begin(); it != mp.end(); it++)
-        {
-            if (it->second > mx)
-            {
-                maxmp[it->first] = it->second;
-                mx = it->second;
+
+        while (ss >> word) {
+            mp[word]++;
+
+            if (mp[word] > mx) {
+                mx = mp[word];
+                maxWord = word;
             }
         }
-        for (auto it = maxmp.begin(); it != maxmp.end(); it++)
-        {
-            cout << it->first << " " << it->second << endl;
-        }
+        cout << maxWord << " " << mx << endl;
     }
     return 0;
 }

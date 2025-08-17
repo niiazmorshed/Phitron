@@ -8,6 +8,8 @@ int main()
     pq.push(20);
     pq.push(30);
     pq.push(40);
+    pq.pop();
+    cout << pq.size() << endl;
     cout << pq.top();
     
     return 0;

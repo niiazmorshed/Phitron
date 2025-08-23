@@ -2,7 +2,6 @@
 using namespace std;
 vector<int> adj_list[1005];
 bool visited[1005];
-int parent[1005];
 void bfs(int src)
 {
     queue<int> q;
@@ -10,15 +9,14 @@ void bfs(int src)
     visited[src] = true;
     while (!q.empty())
     {
-        int prnt = q.front();
+        int parent = q.front();
         q.pop();
-        for (int child : adj_list[prnt])
+        for (int child : adj_list[parent])
         {
             if (!visited[child])
             {
                 q.push(child);
                 visited[child] = true;
-                parent[child] = prnt;
             }
         }
     }
@@ -35,21 +33,14 @@ int main()
         adj_list[b].push_back(a);
     }
     memset(visited, false, sizeof(visited));
-    memset(parent, -1, sizeof(parent));
-    bfs(0); 
-    int src, dst;
-    cin >> src >> dst;
-    int node = dst;
-    vector<int> path;
-    while (node != -1)
+    bfs(0);
+    int nod;
+    int count;
+    cin >> nod;
+    for (int i : adj_list[nod])
     {
-        path.push_back(node);
-        node = parent[node];
+        count++;
     }
-    reverse(path.begin(), path.end());
-    for (int i : path)
-    {
-        cout << i << " ";
-    }
+    cout << count;
     return 0;
 }

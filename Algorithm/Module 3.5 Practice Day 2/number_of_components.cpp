@@ -2,9 +2,10 @@
 using namespace std;
 vector<int> adj_List[1005];
 bool visited[1005];
-int cnt = 0;
+
 void dfs(int src)
 {
+    cout << src << " ";
     visited[src] = true;
     for (int child : adj_List[src])
     {
@@ -32,9 +33,8 @@ int main()
         if (!visited[i])
         {
             dfs(i);
-            cnt++;
+            cout << endl;
         }
     }
-    cout << cnt << endl;
     return 0;
 }
